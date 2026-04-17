@@ -4,17 +4,18 @@ import { useState, useEffect } from 'react';
 import { ABOUT_ME, WORKS, FRIENDS } from '@/lib/data';
 
 interface WindowProps {
+  idname: string;
   title: string;
   children: React.ReactNode;
   className?: string;
   defaultExpanded?: boolean;
 }
 
-function Window({ title, children, defaultExpanded = true }: WindowProps) {
+function Window({idname, title, children, defaultExpanded = true}: WindowProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded);
 
   return (
-    <div className="window" style={{ marginBottom: '16px' }}>
+    <div id={idname} className="window" style={{ marginBottom: '16px' }}>
       <div className="title-bar">
         <div className="title-bar-text">{title}</div>
         <div className="title-bar-controls">
@@ -77,10 +78,6 @@ function Navigation() {
         <button onClick={() => scrollTo('home')} style={{ padding: '6px 18px', fontSize: '14px' }}>首页</button>
         <button onClick={() => scrollTo('about')} style={{ padding: '6px 18px', fontSize: '14px' }}>关于</button>
         <button onClick={() => scrollTo('works')} style={{ padding: '6px 18px', fontSize: '14px' }}>作品</button>
-        <button 
-          onClick={() => window.dispatchEvent(new CustomEvent('showLinks'))} 
-          style={{ padding: '6px 18px', fontSize: '14px' }}
-        >友链</button>
         
         <button onClick={() => setShowMore(!showMore)} style={{ padding: '6px 14px', fontSize: '14px' }}>
           更多 ▾
@@ -98,8 +95,9 @@ function Navigation() {
             minWidth: '130px',
             zIndex: 1001,
           }}>
-            <button onClick={() => handleMoreClick({ id: 'guestbook' })} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 14px', border: 'none' }}>留言</button>
-            <button onClick={() => handleMoreClick({ id: 'secret' })} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 14px', border: 'none' }}>🎁 神秘</button>
+            {/* <button onClick={() => handleMoreClick({ id: 'guestbook' })} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 14px', border: 'none' }}>留言</button> */}
+            <button onClick={() => window.dispatchEvent(new CustomEvent('showLinks'))} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 14px', border: 'none' }}>友链</button>
+            <button onClick={() => handleMoreClick({ id: 'secret' })} style={{ display: 'block', width: '100%', textAlign: 'left', padding: '8px 14px', border: 'none' }}>神秘 O_O</button>
           </div>
         )}
       </div>
@@ -136,14 +134,14 @@ function HeroSection() {
       textAlign: 'center',
       padding: '100px 20px 60px',
     }}>
-      <h1 style={{ fontSize: '68px', color: '#000080', marginBottom: '10px', fontFamily: 'MS Sans Serif, Arial' }}>
-        Welcome to LittleAndrew
+      <h1 style={{ fontSize: '72px', color: '#000080', marginBottom: '10px', fontFamily: '"VT323", "Noto Sans SC", monospace', letterSpacing: '2px' }}>
+        静水深流
       </h1>
-      <p style={{ fontSize: '26px', color: '#666', fontStyle: 'italic', fontFamily: 'MS Sans Serif, Arial' }}>
+      <p style={{ fontSize: '28px', color: '#666', fontStyle: 'italic', fontFamily: '"VT323", "Noto Sans SC", monospace' }}>
         Still water always runs deep...
       </p>
       
-      <div style={{ marginTop: '36px', padding: '18px 36px', fontFamily: 'MS Sans Serif, Arial' }}>
+      <div style={{ marginTop: '36px', padding: '18px 36px', fontFamily: '"VT323", "Noto Sans SC", monospace' }}>
         {loading ? (
           <p style={{ color: '#fff', fontSize: '18px' }}>加载古诗中...</p>
         ) : (
@@ -154,14 +152,14 @@ function HeroSection() {
         )}
       </div>
       
-      <p style={{ marginTop: '36px', color: '#fff', textShadow: '1px 1px 2px #000', fontSize: '20px' }}>嗨！你好！欢迎来到小和的个人主页</p>
+      <p style={{ marginTop: '36px', color: '#fff', textShadow: '1px 1px 2px #000', fontSize: '22px', fontFamily: '"VT323", "Noto Sans SC", monospace' }}>嗨！你好！欢迎来到小和的个人主页</p>
     </section>
   );
 }
 
 function AboutSection() {
   return (
-    <section id="about">
+    <section>
       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginBottom: '18px' }}>
         {ABOUT_ME.tags.map((tag, i) => (
           <span key={i} className="field" style={{ padding: '6px 14px', fontSize: '15px' }}>{tag}</span>
@@ -187,7 +185,7 @@ function AboutSection() {
 
 function WorksSection() {
   return (
-    <div id="works" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px' }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '18px' }}>
       {WORKS.map((work, i) => (
         <a key={i} href={work.url} target="_blank" rel="noopener noreferrer" style={{ padding: '20px', display: 'block', textDecoration: 'none', color: 'inherit', border: '2px solid', borderColor: '#fff #808080 #808080 #fff' }}>
           <strong style={{ fontSize: '17px' }}>{work.name}</strong>
@@ -201,19 +199,23 @@ function WorksSection() {
 function LinksModal({ onClose }: { onClose: () => void }) {
   return (
     <div style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0, background: 'rgba(0,0,0,0.5)', display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: 2000 }} onClick={onClose}>
-      <div style={{ background: '#c0c0c0', border: '2px solid', borderColor: '#fff #808080 #808080 #fff', padding: '18px', maxWidth: '650px', maxHeight: '80vh', overflow: 'auto' }} onClick={e => e.stopPropagation()}>
-        <div className="title-bar" style={{ marginBottom: '14px' }}>
+      <div style={{ width: '600px', maxWidth: '90vw', background: '#c0c0c0', border: '2px solid', borderColor: '#fff #808080 #808080 #fff' }} onClick={e => e.stopPropagation()}>
+        <div className="title-bar">
           <div className="title-bar-text">友链</div>
-          <div className="title-bar-controls"><button aria-label="Close" onClick={onClose}>×</button></div>
+          <div className="title-bar-controls">
+            <button aria-label="Close" onClick={onClose} style={{ width: 16, height: 14 }}>×</button>
+          </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '18px' }}>
-          {FRIENDS.map((friend, i) => (
-            <a key={i} href={friend.url} target="_blank" rel="noopener noreferrer" style={{ padding: '18px', textAlign: 'center', textDecoration: 'none', color: 'inherit', border: '2px solid', borderColor: '#fff #808080 #808080 #fff' }}>
-              <img src={friend.avatar} alt={friend.name} style={{ width: 72, height: 72, borderRadius: '50%', marginBottom: '12px', objectFit: 'cover' }} />
-              <div style={{ fontWeight: 'bold', fontSize: '15px' }}>{friend.name}</div>
-              <div style={{ fontSize: '13px', color: '#666', marginTop: '6px' }}>{friend.slogan}</div>
-            </a>
-          ))}
+        <div className="window-body" style={{ padding: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: '12px' }}>
+            {FRIENDS.map((friend, i) => (
+              <a key={i} href={friend.url} target="_blank" rel="noopener noreferrer" style={{ padding: '12px', textAlign: 'center', textDecoration: 'none', color: 'inherit', border: '2px solid', borderColor: '#fff #808080 #808080 #fff' }}>
+                <img src={friend.avatar} alt={friend.name} style={{ width: 56, height: 56, borderRadius: '50%', marginBottom: '8px', objectFit: 'cover' }} />
+                <div style={{ fontWeight: 'bold', fontSize: '13px' }}>{friend.name}</div>
+                <div style={{ fontSize: '11px', color: '#666', marginTop: '4px' }}>{friend.slogan}</div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -345,10 +347,9 @@ export default function HomePage() {
       <Navigation />
       <HeroSection />
       <main style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 18px' }}>
-        <Window title="关于我" defaultExpanded={true}><AboutSection /></Window>
-        <Window title="作品集" defaultExpanded={true}><WorksSection /></Window>
-        <Window title="留言板" defaultExpanded={true}><GuestbookSection /></Window>
-        <Window title="神秘" defaultExpanded={false}><SecretSection /></Window>
+        <Window title="关于我" defaultExpanded={true} idname={'about'}><AboutSection /></Window>
+        <Window title="作品集" defaultExpanded={true} idname={'works'}><WorksSection /></Window>
+        <Window title="留言板" defaultExpanded={true} idname={'guestbook'}><GuestbookSection /></Window>
         <Footer />
       </main>
       {showLinksModal && <LinksModal onClose={() => setShowLinksModal(false)} />}
