@@ -1,0 +1,6 @@
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 4c-1.1 0-2 .9-2 2v20c0 1.1.9 2 2 2s2-.9 2-2V6c0-1.1-.9-2-2-2z" fill="#fa8072"/>
+  <path d="M8 10v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10l-8-6-8 6z" fill="#ffd700"/>
+  <circle cx="24" cy="8" r="4" fill="#000"/>
+  <text x="11" y="11" font-size="4" fill="#000">♥</text>
+</svg>

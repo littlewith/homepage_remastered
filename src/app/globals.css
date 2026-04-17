@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --desktop-bg: #008080;
+  --window-bg: #c0c0c0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: "Pixelated MS Sans Serif", Arial, sans-serif;
+  font-size: 12px;
+  background: var(--desktop-bg);
+  line-height: 1.4;
+}
+
+a {
+  color: #0000ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* 响应式布局 */
+@media (max-width: 768px) {
+  body {
+    font-size: 11px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 13px;
+  }
+}
+
+/* Window 样式覆盖 */
+.window {
+  background: var(--window-bg);
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.title-bar {
+  background: linear-gradient(to right, #000080, #1084d0);
+  padding: 2px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-bar.active {
+  background: linear-gradient(to right, #000080, #1084d0);
+}
+
+.title-bar.inactive {
+  background: linear-gradient(to right, #808080, #c0c0c0);
+}
+
+.title-bar-text {
+  color: #fff;
+  font-weight: bold;
+  padding: 0 4px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 2px;
+}
+
+.title-bar-controls button {
+  width: 16px;
+  height: 14px;
+  font-size: 9px;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.window-body {
+  padding: 12px;
+  background: var(--window-bg);
+}
+
+/* Form elements */
+input[type="text"],
+input[type="email"],
+textarea {
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  padding: 4px 6px;
+  font-family: inherit;
+  font-size: inherit;
+  background: #fff;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #000080;
+}
+
+button {
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  background: var(--window-bg);
+  padding: 4px 16px;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  box-shadow: 1px 1px 0 #000;
+}
+
+button:hover {
+  background: #d0d0d0;
+}
+
+button:active {
+  border-color: #808080 #fff #fff #808080;
+  box-shadow: none;
+}
+
+/* Links 样式 */
+.link-item:hover,
+.work-item:hover {
+  background: rgba(0,0,128,0.1);
+}
+
+/* Timeline */
+.timeline-item {
+  display: flex;
+  gap: 8px;
+}
+
+.timeline-date {
+  min-width: 70px;
+}
+
+/* 自定义滚动条 */
+::-webkit-scrollbar {
+  width: 16px;
+  height: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background: #dfdfdf;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c0c0c0;
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
+}
+
+::-webkit-scrollbar-button {
+  background: #c0c0c0;
+  border: 1px solid;
+  border-color: #fff #808080 #808080 #fff;
 }
