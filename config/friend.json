@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Xrect1fy",
+        "avatar": "https://cdn.jsdelivr.net/gh/Xrect1fy/picorep//img/202306221140307.jpg",
+        "slogan": "一名坚持学习的安全小白",
+        "url": "https://xrect1fy.github.io/"
+    },
+    {
+        "name": "cyt的笔记屋",
+        "avatar": "https://youcyt.ltd/img/other/avatar.png",
+        "slogan": "cyt的博客",
+        "url": "https://youcyt.ltd/"
+    },
+    {
+        "name": "Baka Mashiro's Home",
+        "avatar": "https://avatars.githubusercontent.com/u/53376445?v=4",
+        "slogan": "<small style='font-size:13px;'>TECH OTAKUS SAVE THE WORLD</small>",
+        "url": "https://blog.yuzhes.com/"
+    },
+    {
+        "name": "Dustella 的自留地",
+        "avatar": "https://avatars.githubusercontent.com/u/30797133?v=4",
+        "slogan": "技术很厉害的学长大佬",
+        "url": "https://www.dustella.net/"
+    },
+    {
+        "name": "北雁云依的博客",
+        "avatar": "https://stblog.penclub.club/%E5%A4%B4%E5%83%8F%E5%9C%86.webp",
+        "slogan": "<p>把信拿去吧，你可以假戏真做",
+        "url": "https://stblog.penclub.club/"
+    },
+    {
+        "name": "Matrix的博客",
+        "avatar": "http://laysath.cn/content/uploadfile/202305/ad7b1684999257.jpg",
+        "slogan": "<p style='font-size:10px;'>冷知识：Matrix译为“矩阵”，Matrix最喜欢看的电影之一：《黑客帝国：矩阵革命》</p>",
+        "url": "http://laysath.cn/"
+    }
+]

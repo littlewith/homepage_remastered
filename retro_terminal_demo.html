@@ -1,0 +1,214 @@
+
+<link href="https://fonts.googleapis.com/css2?family=VT323&family=Share+Tech+Mono&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+<h2 class="sr-only">Retro terminal typewriter effect demo — three styles with live typing animation</h2>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.wrap{padding:1.5rem 0;display:flex;flex-direction:column;gap:1.5rem}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:.5rem}
+.tab{padding:6px 14px;font-size:13px;border:0.5px solid var(--color-border-secondary);border-radius:var(--border-radius-md);background:transparent;cursor:pointer;color:var(--color-text-secondary);transition:all .15s}
+.tab.active{background:var(--color-background-secondary);color:var(--color-text-primary);border-color:var(--color-border-primary)}
+.screen-wrap{border-radius:12px;overflow:hidden;position:relative}
+.screen{padding:2rem 1.75rem;min-height:280px;position:relative;overflow:hidden;cursor:pointer}
+.scanlines{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,.07) 2px,rgba(0,0,0,.07) 4px);z-index:2}
+.vignette{position:absolute;inset:0;pointer-events:none;box-shadow:inset 0 0 80px rgba(0,0,0,.5);border-radius:12px;z-index:3}
+.content{position:relative;z-index:4}
+.prompt{opacity:.6;font-size:.85em;margin-bottom:.5rem}
+.typed{white-space:pre-wrap;line-height:1.7}
+.cursor{display:inline-block;width:0.6em;height:1em;vertical-align:middle;margin-left:1px;animation:blink .8s step-start infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.replay-hint{position:absolute;bottom:1rem;right:1rem;font-size:11px;opacity:.4;z-index:5;letter-spacing:.05em}
+
+.green .screen{background:#0a120a;font-family:'VT323',monospace;font-size:1.4rem;color:#33ff33;text-shadow:0 0 6px #33ff33,0 0 18px rgba(51,255,51,.4)}
+.green .cursor{background:#33ff33;box-shadow:0 0 6px #33ff33}
+
+.amber .screen{background:#140c00;font-family:'VT323',monospace;font-size:1.4rem;color:#ffaa00;text-shadow:0 0 6px #ffaa00,0 0 18px rgba(255,170,0,.35)}
+.amber .cursor{background:#ffaa00;box-shadow:0 0 6px #ffaa00}
+
+.paper .screen{background:#f5f0e8;font-family:'Courier Prime',monospace;font-size:1.05rem;color:#1a1209;text-shadow:none}
+.paper .cursor{background:#1a1209}
+.paper .scanlines{display:none}
+.paper .vignette{display:none}
+
+.code-box{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-md);padding:1rem 1.25rem;font-family:var(--font-mono);font-size:12.5px;color:var(--color-text-secondary);overflow-x:auto;white-space:pre;line-height:1.7}
+.section-label{font-size:12px;color:var(--color-text-secondary);letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5rem}
+.tag{display:inline-block;font-size:11px;padding:3px 8px;border-radius:var(--border-radius-md);margin-right:6px;margin-bottom:6px}
+.tag-green{background:#0a2a0a;color:#33ff33;font-family:'Share Tech Mono',monospace}
+.tag-amber{background:#1a1000;color:#ffaa00;font-family:'Share Tech Mono',monospace}
+.tag-paper{background:#f5f0e8;color:#1a1209;border:1px solid #ccc;font-family:'Courier Prime',monospace}
+</style>
+
+<div class="wrap">
+  <div class="tabs" id="tabs">
+    <button class="tab active" data-theme="green">IBM 5151 — 绿磷</button>
+    <button class="tab" data-theme="amber">DEC VT100 — 琥珀</button>
+    <button class="tab" data-theme="paper">打字机 — 纸张</button>
+  </div>
+
+  <div id="demo" class="screen-wrap green">
+    <div class="screen" id="screen" title="点击重播">
+      <div class="scanlines"></div>
+      <div class="vignette"></div>
+      <div class="content">
+        <div class="prompt" id="prompt">C:\USERS\IBM&gt;</div>
+        <div class="typed" id="typed"></div>
+        <span class="cursor" id="cursor">█</span>
+      </div>
+      <div class="replay-hint">CLICK TO REPLAY</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">字体方案</div>
+    <div id="font-tags"></div>
+  </div>
+
+  <div>
+    <div class="section-label">核心代码片段</div>
+    <pre class="code-box" id="code-box"></pre>
+  </div>
+</div>
+
+<script>
+const themes={
+  green:{
+    cls:"green",
+    prompt:"C:\\USERS\\IBM>",
+    text:"SYSTEM READY.\n\nLOADING MARL-V2X MODULE...\n> AGENT_COUNT = 4\n> SPECTRUM_BANDS = [5.9GHz]\n> REWARD_FN = CAPACITY_MINUS_INTERFERENCE\n\nINITIALIZING Q-NETWORK...\nDONE. PRESS ANY KEY TO CONTINUE_",
+    fonts:[
+      {label:"VT323",cls:"tag-green",link:"fonts.google.com/specimen/VT323"},
+      {label:"Share Tech Mono",cls:"tag-green",link:""},
+      {label:"DOS/V pixel",cls:"tag-green",link:""},
+    ],
+    code:`/* 1. 引入 VT323 */
+@import url('fonts.googleapis.com/css2?family=VT323');
+
+/* 2. CRT 绿屏基础样式 */
+.terminal {
+  background: #0a120a;
+  font-family: 'VT323', monospace;
+  font-size: 1.4rem;
+  color: #33ff33;
+  /* 磷光辉光 */
+  text-shadow: 0 0 6px #33ff33,
+               0 0 18px rgba(51,255,51,.4);
+}
+
+/* 3. 扫描线叠层 */
+.scanlines {
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 2px,
+    rgba(0,0,0,.07) 2px, rgba(0,0,0,.07) 4px
+  );
+  pointer-events: none;
+}
+
+/* 4. 光标闪烁 */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+.cursor {
+  background: #33ff33;
+  animation: blink .8s step-start infinite;
+}`
+  },
+  amber:{
+    cls:"amber",
+    prompt:"$ amber-term_",
+    text:"amber phosphor terminal\n━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\nDEC VT100 / VT220 系列\n大约 1978 — 1990 年代\n\n这种琥珀色比绿色\n对眼睛更加友好\n\n[SYSTEM] uptime: 4096 days\n[NET]    latency: 12ms\n[MEM]    free: 640KB_",
+    fonts:[
+      {label:"VT323",cls:"tag-amber",link:""},
+      {label:"Px437 IBM VGA",cls:"tag-amber",link:""},
+      {label:"Perfect DOS VGA",cls:"tag-amber",link:""},
+    ],
+    code:`/* 琥珀屏 — 改变颜色即可 */
+.terminal-amber {
+  background: #140c00;
+  font-family: 'VT323', monospace;
+  color: #ffaa00;
+  text-shadow: 0 0 6px #ffaa00,
+               0 0 18px rgba(255,170,0,.35);
+}
+
+/* 可选：加轻微屏幕闪烁 */
+@keyframes flicker {
+  0%,100% { opacity: 1 }
+  92%      { opacity: 1 }
+  93%      { opacity: .85 }
+  94%      { opacity: 1 }
+}
+.terminal-amber {
+  animation: flicker 8s infinite;
+}`
+  },
+  paper:{
+    cls:"paper",
+    prompt:"——  1967年  ——",
+    text:"致 远方的你：\n\n这封信，是用IBM Selectric\n打字机敲出来的。\n\n每一个字都经过了\n色带与纸张的对话。\n\n铅字落下的瞬间\n是一种仪式感。\n\n                  ——  某人  留",
+    fonts:[
+      {label:"Courier Prime",cls:"tag-paper",link:""},
+      {label:"Special Elite",cls:"tag-paper",link:""},
+      {label:"American Typewriter",cls:"tag-paper",link:""},
+    ],
+    code:`/* 打字机风格 — 无需发光 */
+@import url(
+  'fonts.googleapis.com/css2?family=Courier+Prime'
+);
+
+.typewriter {
+  background: #f5f0e8;   /* 泛黄纸张 */
+  font-family: 'Courier Prime', monospace;
+  color: #1a1209;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* JS 逐字打出 */
+function typewrite(el, text, speed=45){
+  let i=0;
+  const timer=setInterval(()=>{
+    el.textContent += text[i++];
+    if(i>=text.length) clearInterval(timer);
+  }, speed);
+}`
+  }
+};
+
+let currentTheme="green";
+let timer=null;
+
+function type(text,el,speed,cb){
+  if(timer)clearInterval(timer);
+  el.textContent="";
+  let i=0;
+  timer=setInterval(()=>{
+    if(i<text.length){el.textContent+=text[i++];}
+    else{clearInterval(timer);if(cb)cb();}
+  },speed);
+}
+
+function applyTheme(name){
+  const t=themes[name];
+  const demo=document.getElementById("demo");
+  demo.className="screen-wrap "+t.cls;
+  document.getElementById("prompt").textContent=t.prompt;
+  document.getElementById("code-box").textContent=t.code;
+  const ft=document.getElementById("font-tags");
+  ft.innerHTML=t.fonts.map(f=>`<span class="tag ${f.cls}">${f.label}</span>`).join("");
+  type(t.text,document.getElementById("typed"),name==="paper"?55:35);
+}
+
+document.getElementById("screen").addEventListener("click",()=>applyTheme(currentTheme));
+
+document.getElementById("tabs").addEventListener("click",e=>{
+  const btn=e.target.closest(".tab");
+  if(!btn)return;
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  btn.classList.add("active");
+  currentTheme=btn.dataset.theme;
+  applyTheme(currentTheme);
+});
+
+applyTheme("green");
+</script>

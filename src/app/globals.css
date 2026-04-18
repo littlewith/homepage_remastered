@@ -170,3 +170,13 @@ button:active {
   border: 1px solid;
   border-color: #fff #808080 #808080 #fff;
 }
+
+/* 隐藏滚动条 */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
