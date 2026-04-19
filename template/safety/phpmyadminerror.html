@@ -1,0 +1,224 @@
+<!DOCTYPE html> <html lang=zh_CN dir=ltr><meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name=referrer content=no-referrer>
+<meta name=robots content=noindex,nofollow>
+<meta http-equiv=X-UA-Compatible content="IE=Edge">
+<style>/*! jQuery UI - v1.12.1 - 2016-12-21
+* http://jqueryui.com
+* Includes: draggable.css, core.css, resizable.css, selectable.css, sortable.css, accordion.css, autocomplete.css, menu.css, button.css, controlgroup.css, checkboxradio.css, datepicker.css, dialog.css, progressbar.css, selectmenu.css, slider.css, spinner.css, tabs.css, tooltip.css, theme.css
+* To view and modify this theme, visit http://jqueryui.com/themeroller/?scope=&folderName=smoothness&cornerRadiusShadow=8px&offsetLeftShadow=-8px&offsetTopShadow=-8px&thicknessShadow=8px&opacityShadow=30&bgImgOpacityShadow=0&bgTextureShadow=flat&bgColorShadow=aaaaaa&opacityOverlay=30&bgImgOpacityOverlay=0&bgTextureOverlay=flat&bgColorOverlay=aaaaaa&iconColorError=cd0a0a&fcError=cd0a0a&borderColorError=cd0a0a&bgImgOpacityError=95&bgTextureError=glass&bgColorError=fef1ec&iconColorHighlight=2e83ff&fcHighlight=363636&borderColorHighlight=fcefa1&bgImgOpacityHighlight=55&bgTextureHighlight=glass&bgColorHighlight=fbf9ee&iconColorActive=454545&fcActive=212121&borderColorActive=aaaaaa&bgImgOpacityActive=65&bgTextureActive=glass&bgColorActive=ffffff&iconColorHover=454545&fcHover=212121&borderColorHover=999999&bgImgOpacityHover=75&bgTextureHover=glass&bgColorHover=dadada&iconColorDefault=888888&fcDefault=555555&borderColorDefault=d3d3d3&bgImgOpacityDefault=75&bgTextureDefault=glass&bgColorDefault=e6e6e6&iconColorContent=222222&fcContent=222222&borderColorContent=aaaaaa&bgImgOpacityContent=75&bgTextureContent=flat&bgColorContent=ffffff&iconColorHeader=222222&fcHeader=222222&borderColorHeader=aaaaaa&bgImgOpacityHeader=75&bgTextureHeader=highlight_soft&bgColorHeader=cccccc&cornerRadius=4px&fsDefault=1.1em&fwDefault=normal&ffDefault=Verdana%2CArial%2Csans-serif
+* Copyright jQuery Foundation and other contributors; Licensed MIT */@-moz-keyframes blink{0%{}50%{background-color:transparent}100%{}}@-webkit-keyframes blink{0%{}50%{background-color:transparent}100%{}}@keyframes blink{0%{}50%{background-color:transparent}100%{}}:root{--blue:#007bff;--indigo:#6610f2;--purple:#6f42c1;--pink:#e83e8c;--red:#dc3545;--orange:#fd7e14;--yellow:#ffc107;--green:#28a745;--teal:#20c997;--cyan:#17a2b8;--white:#fff;--gray:#6c757d;--gray-dark:#343a40;--primary:#ddd;--secondary:#ddd;--success:#28a745;--info:#17a2b8;--warning:#ffc107;--danger:#dc3545;--light:#f8f9fa;--dark:#343a40;--breakpoint-xs:0;--breakpoint-sm:576px;--breakpoint-md:768px;--breakpoint-lg:992px;--breakpoint-xl:1200px;--font-family-sans-serif:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans","Liberation Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";--font-family-monospace:monospace}*,*::before,*::after{box-sizing:border-box}html{font-family:sans-serif;line-height:1.15;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:rgba(0,0,0,0)}body{font-family:sans-serif;font-size:0.82rem;font-weight:400;line-height:1.5;color:#444;background-color:#fff}h1{margin-top:0}a{background-color:transparent}a:hover{color:#b7b7b7;text-decoration:underline}a:not([href]):not([class]){color:inherit;text-decoration:none}a:not([href]):not([class]):hover{color:inherit;text-decoration:none}img{border-style:none}label{margin-bottom:0}input,select{margin:0;font-family:inherit;line-height:inherit}input{overflow:visible}select{text-transform:none}select{word-wrap:normal}[type=submit]{-webkit-appearance:button}button:not(:disabled),[type=button]:not(:disabled),[type=reset]:not(:disabled),[type=submit]:not(:disabled){cursor:pointer}fieldset{min-width:0;margin:0}legend{display:block;white-space:normal}::-webkit-file-upload-button{font:inherit;-webkit-appearance:button}h1{margin-bottom:.5rem;line-height:1.2}.container{padding-right:15px;padding-left:15px;margin-right:auto;margin-left:auto}@media (min-width:576px){.container{max-width:540px}}@media (min-width:768px){.container{max-width:720px}}@media (min-width:992px){.container{max-width:960px}}@media (min-width:1200px){.container{max-width:1140px}}.row{display:flex;flex-wrap:wrap;margin-right:-15px;margin-left:-15px}.col-12,.col-8,.col-4{position:relative;width:100%;padding-right:15px;padding-left:15px}.col-4{flex:0 0 33.33333333%;max-width:33.33333333%}.col-8{flex:0 0 66.66666667%;max-width:66.66666667%}.col-12{flex:0 0 100%;max-width:100%}.col-form-label{padding-top:calc(0.375rem + 1px);padding-bottom:calc(0.375rem + 1px);margin-bottom:0;font-size:inherit;line-height:1.5}.form-row{display:flex;flex-wrap:wrap;margin-right:-5px;margin-left:-5px}.form-row>[class*=col-]{padding-right:5px;padding-left:5px}.btn{display:inline-block;text-align:center;vertical-align:middle;user-select:none;background-color:transparent;border:1px solid transparent;padding:.375rem .75rem;font-size:0.82rem;line-height:1.15;border-radius:.85rem}.btn:hover{color:#444;text-decoration:none}.btn:focus,.btn.focus{outline:0;box-shadow:0 0 0 .2rem rgba(221,221,221,.25)}.btn.disabled,.btn:disabled{opacity:.65;box-shadow:none}.btn:not(:disabled):not(.disabled){cursor:pointer}.btn:not(:disabled):not(.disabled):active,.btn:not(:disabled):not(.disabled).active{box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn:not(:disabled):not(.disabled):active:focus,.btn:not(:disabled):not(.disabled).active:focus{box-shadow:0 0 0 .2rem rgba(221,221,221,.25),inset 0 3px 5px rgba(0,0,0,.125)}.btn-primary{color:#212529;background:#ddd linear-gradient(180deg,#e2e2e2,#ddd) repeat-x;box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075)}.btn-primary:hover{color:#212529;background:#cacaca linear-gradient(180deg,#d2d2d2,#cacaca) repeat-x;border-color:#c4c4c4}.btn-primary:focus,.btn-primary.focus{color:#212529;background:#cacaca linear-gradient(180deg,#d2d2d2,#cacaca) repeat-x;border-color:#c4c4c4;box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 1px 1px rgba(0,0,0,.075),0 0 0 .2rem rgba(193,193,194,.5)}.btn-primary.disabled,.btn-primary:disabled{color:#212529;background-color:#ddd;border-color:#ddd;background-image:none}.btn-primary:not(:disabled):not(.disabled):active,.btn-primary:not(:disabled):not(.disabled).active,.show>.btn-primary.dropdown-toggle{color:#212529;background-color:#c4c4c4;background-image:none;border-color:#bdbdbd}.btn-primary:not(:disabled):not(.disabled):active:focus,.btn-primary:not(:disabled):not(.disabled).active:focus,.show>.btn-primary.dropdown-toggle:focus{box-shadow:inset 0 3px 5px rgba(0,0,0,.125),0 0 0 .2rem rgba(193,193,194,.5)}.alert{position:relative;margin-bottom:.5em;border:1px solid transparent;border-radius:5px}.alert-danger{background:#f8d7da linear-gradient(180deg,#f9dde0,#f8d7da) repeat-x}.d-flex{display:flex!important}.align-items-center{align-items:center!important}@supports (position:sticky){.sticky-top{position:sticky;top:0;z-index:1020}}#page_content{margin:0 .5em}h1{font-size:140%;font-weight:bold}a{text-decoration:none;color:#235a81;cursor:pointer;outline:none}a:link,a:visited,a:active{text-decoration:none;color:#235a81;cursor:pointer;outline:none}a:hover{text-decoration:underline;color:#235a81}a img{border:0}form{padding:0;margin:0;display:inline}input,select{outline:none}input[type=text],input[type=password]{border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;background:#fff;border:1px solid #aaa;color:#555;padding:4px}input:not(.form-control)[type=text],input[type=password]{margin:6px}select:not(.form-control){margin:6px}input[type=text],input[type=password]{transition:all .2s;-ms-transition:all .2s;-webkit-transition:all .2s;-moz-transition:all .2s}select{transition:all .2s;-ms-transition:all .2s;-webkit-transition:all .2s;-moz-transition:all .2s}select#sel-lang{width:auto}input[type=text]:hover,input[type=text]:focus{border:1px solid #7c7c7c;background:#fff}input[type=password]:hover,input[type=password]:focus{border:1px solid #7c7c7c;background:#fff}select:focus{border:1px solid #7c7c7c;background:#fff}input[type=text]:hover,input[type=password]:hover,input[type=number]:hover,input[type=date]:hover{box-shadow:0 1px 3px #aaa;-webkit-box-shadow:0 1px 3px #aaa;-moz-box-shadow:0 1px 3px #aaa}fieldset{margin-top:1em;border-radius:4px 4px 0 0;-moz-border-radius:4px 4px 0 0;-webkit-border-radius:4px 4px 0 0;border:#aaa solid 1px;padding:.5em;background:#eee;-moz-box-shadow:1px 1px 2px #fff inset;-webkit-box-shadow:1px 1px 2px #fff inset;box-shadow:1px 1px 2px #fff inset}fieldset legend{font-weight:bold;color:#444;padding:5px 10px;border-radius:2px;-moz-border-radius:2px;-webkit-border-radius:2px;border:1px solid #aaa;background-color:#fff;max-width:100%;-moz-box-shadow:3px 3px 15px #bbb;-webkit-box-shadow:3px 3px 15px #bbb;box-shadow:3px 3px 15px #bbb;width:initial}img{vertical-align:middle}select{-moz-border-radius:2px;-webkit-border-radius:2px;border-radius:2px;border:1px solid #bbb;color:#333;padding:3px;background:#fff}select:not(.form-control){margin:6px}fieldset.tblFooters{margin-top:0;margin-bottom:.5em;border-top:0;float:none;clear:both;-webkit-border-radius:0 0 4px 4px;-moz-border-radius:0 0 4px 4px;border-radius:0 0 4px 4px}#pma_errors{position:relative;padding:0 .5em}.tblFooters{font-weight:normal;color:#000;background:#d3dce3}body#loginform{margin:1em 0 0 0;text-align:center}body#loginform h1,body#loginform a.logo{display:block;text-align:center}body#loginform div.container{text-align:left;width:30em;margin:0 auto}#login_form{text-align:left}#login_form fieldset.tblFooters{text-align:right}form.login input[type=text],form.login input[type=password]{box-sizing:border-box;width:14em}@media only screen and (max-width:768px){body#loginform div.container{width:100%}}@media (min-width:1200px){fieldset.tblFooters{text-align:left}}.icon{margin:0;margin-left:.3em;padding:0!important;width:16px;height:16px}.ic_b_help{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACiElEQVR4AaRSw2IcCBjeZ0leY63T2qxtu7Ft27bHtm17wnH1DQ61e/htfATgg+AFBdOQyKbr43ep2piBrImGiKpwaF0RMqzKdu8uSXayX5uAoo3+SlJH3EZfAiZvFHpXKANGTwRqZwRT3IB7nO379aUJCMrwr2vyvbDFH4PUvIVRmgPlM1qUTGnQRTCBow5A5w6hl+wIdxFsvz6TYFm6m7Uo3naZfFGwtUHkp4I6CEY4glHYgxHMcJ24PSrHhtgNlX0X9YsGV82cLutxgmleIEfpCENk3EbOmArX+6SIxO+n4EEaMnz+mAy3hyRgqPygK/0oHJXnPE4wSHMbdKlZewgWXO2T4FKPCI5ABEsCJygKD6Lx+ynqwuk2JuqX1JBbt3CjR2h4nKB93RrVu/aQMyLDxW4hznRwUs4srAjt2ArF4d2Kop+kw4kmOi52sqC27+BMMyv6OEHtnC6qc+7h1rAMp9tZONXKxMkWJvai92Dzh3C2mY6jtWQcScHZZipUjm0crKI8SVA0qjAobNtoXtbhTBsHJ5sZON5Iw7E6SgYOVxJwuGIdhyrWUDIqgNDox5+Fa09GSM2Tsy50gqX242I753FgcDcG/04U+8tXM3C4fBkEsR0jqXG+v73wZIlnm9lZpxoYLp7Wjw2RA6ebqDhUtYGmOUkG0sEHSxcwQdWDKnPi26szrq8uTz85Yxr2l5N+/beUEGaqPKDIXSge4eF4zRqOVqwgr5+FDaEVZKkDn1+YDH9ybvzXl77yzznLv/5wZ9E9SNCAr/dBZg1mgKv1omtZgeSscpY/s8haFow3M7mUrFV2LFpTa1+w6rZN7orPVtnLP5tnLr1tmrGk1jhtMdbMRBEGANevBaKs4AxcAAAAAElFTkSuQmCC)}.ic_s_error{background-image:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAACLUlEQVR4AaWTA3DfMRTHX23bdg+zbdveYd7OnG1vh9nGabbN2rbdJnlp8vevOPV7F+f7eaER5xy6onYAtntNCHI+nyMuRkRPkUCkIpEuI8Prjnsvp3cKILtWz+DIT9QbmXuZh4SCqb29ur+mGhoSE8G4oboQka1zP3zrXjtAy85VwoyXmt39bazDw4AVZAOKJGXs5Q/G3gFQk5AITSn/65GxJX6nH97TAZq3rwxGxPctnv7eNuHh0PLxGUhZbzoLUnVblgMgB/NBo6E6Lh7qEn8XMMRBoeceZxiDEGN0YYOxhd4soFwYtEKKwCiHhpePwT4yGritizclZCEIqQCU0kUWYWLZeZkqIzIBoKgAIGHAWhCaM9LBITIWCCGLDAE+Zo6OQHMzpVEXUStpZETd35SWDmaOzkAJ9dEBRAM441qjLiJJidNvgagTMgQQiVICBisg+c1lFeK0A6RRF7Hxw0uoe3hDFx1FaeoXCA1lZTJovuEKrlTF/QMT70DdZFnaL98AtlPnqYxM9jEEi8BgKPnzXW77ig5ACLnaUl5QUBkfB9bDx+kgFSf2Q/mJfSqjbDuOnwilcX+gMje1QACuKh5SwqIRM5CxS44xvW2cxCk3ZWaoDkyOWwQFq1KZMOd8flaPiEuGv0q61+4p/5k1YAZDPGHp7O3lEtsdLBydQA43VVZA8e+vUJmXJp4yrhv5JrndU9bp6+SeIYg4H5n8TEz5mRCvj3qb2v4zdUWt5qKyRh4qlXIAAAAASUVORK5CYII=)}input,select{font-size:1em}.btn-primary{font-weight:700}.btn-primary{border-color:#aaa;text-shadow:0 1px 0#fff;background-image:linear-gradient(#f8f8f8,#d8d8d8)}.btn-primary:hover,.btn-secondary:hover{background-image:linear-gradient(#fff,#ddd)}.alert{text-align:left;-moz-box-shadow:0 1px 1px #fff inset;-webkit-box-shadow:0 1px 1px #fff inset;box-shadow:0 1px 1px #fff inset;background-position:10px 50%;padding:10px 10px 10px 10px}.alert-danger{color:#000;background-color:pink;background-image:none;border-color:#333}</style>
+<title>phpMyAdmin</title>
+<noscript><style>html{display:block}</style></noscript>
+
+<body id=loginform>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <div id=page_content>
+ 
+ 
+<div class=container>
+<div class=row>
+<div class=col-12>
+<a href="http://localhost/phpmyadmin/url.php?url=https%3A%2F%2Fwww.phpmyadmin.net%2F" target=_blank rel="noopener noreferrer" class=logo>
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKwAAABlCAMAAADnCPiWAAAC/VBMVEVMaXHS0tLMzMzU1NTNzMvOzs7MzMzMzMzMzMzMzMzNzc3Nzc3Ozs7MzMzMzMzMzMzMzMzMzMzKysrMzMzKysrMzMzMzMzNzc3MzMzLy8vMzMzMzMzMzMzMzMzMzMzMzMzGxsbNzc3MzMzMzMzMzMzMzMzMzMz//7zMzMzMzMzNzc3MzMzMzMzMzMzMzMzMzMzMzMzKysrNzc3MzMzNzc3Nzc3MzMzMzMzMzMzMzMzNzc3MzMzU1NTMzMzMzMzMzMzNzc3KysrKycfMzMzMzMzMzMzNzc3MzMzMzMzMzMzMzMzMzMzLy8vMzMzMzMzOzs7MzMzNzc3MzMzNzc3Ly8vMzMzMzMzNzc3Nzc3MzMzLy8vPz8/Nzc1sd69seK9md6r4nQ/4nA74nA73nQ/4nA73nRH4nA/4nA7/jQD4nA34nA7Pyb7zoibcu4dseK9seK9seK/4nA75nA75mwz4nA74nA7/nQD4nw34nA3avZDWwqT2ng/4nQ74nA/4nA75nA74nQ/duYDksmX3nhPNy8pserRseK9reLD5nA74ng/5nA36nA/4nA74nA74nA7TxrLXwZ7Yv5hxca5teK9sebBsea9qebFseK74nA/4nA7/mg/xpS/PysPVwqb1oSHUxKrOy8b4nA76nRBseK9rea9seK9seK9seK9seK9seK9yfLH4nA74nA34nA73nA74nA74nA7rqkTzoiXsqkPtqD7prVHfuHv4nRDRx7fXv5pseK9seK9qebFseK/znxf3nA//oQ/4mw7urUnYwZ7TxK3lsWDqrEzitW/RybtseK9seK9teK9seK9tea9seK9seK9tea/4nRD5nA73nA3duYH1nxnvpzjnr1nrqkX0oSFreK9seLD3nA/3nA3htnXxpC5seK9sd6/4nA74nA7htXJseLD3nA/2nhfzoSHjsWH0mgvwpDDnrlTvpjTitXLrqUXTxrPsqED0oiTprlLVw6j5nQ5qdrHdtnz3nxbvqDfupjXmsV3duoXavIvlr1wzYr5LAAAA/3RSTlMABoILkhE8iVJyiS0pCp1dSZQXQARhsMabNTCYaI2EVQmP9aPE/osBf/3J0nVO+VkTHGZEGTnW/2ugf3oC583hVg4mq/fxuPvbJ+XeIXdwH7W8hkYrp+4jwOrBJTNL3QeS3bqGvz3h1gNytv///4z/yf/uKPqkBiWZ//8bs2eJVPjq////CvhQWUQsM/P9gP///wMzIUIbKMvPENT//////yMv53GAVezymQ6NSuSn6G2z9P////////+6+y3EFF0Kajmt/////3Wz1IigqVtolU94OP//////5TynIGT//+J6qq7vqkDHbGwX9NirsMpvy9+f054Snvdx2bCriIBg+g10AAAMhUlEQVR4AdTZhXL63hbF8cUPrQaroPVSnELLqgsO1T9W4/2f45KcAEnJ+IXQz2iV72R2wj4D/igTWPCH/LPiz7Da7PgzHE4X/oyl5ZVV/BFr605I+CPcHie8PiwS/8bm1nYAQDC0tRm2YCISXQZ2drFA9vYPIodHx7GTeCJysL+NiWTKCVhcWCBeL4D0fjKTBZA71fzgKO8EUDjDojkvFvBLljtyLC7wB1wyfYWh63MsvJtbupcwFLy7waJzkIU8ZPcbWDD+nB+yXe8NFMdk4QGy7dtHLASLF7JSucJqKAdHrc7qtvK9BllwQybxGIvgMShBtn4onecbjeX45s55vngNYJXcTzsgO2WmiQWQdaQ15bV9CSPXZEsKQvHEGhbAutuBiRs7xhJkMfwMxQHphukek9kVGDo7Ig9fclC8kg0LzCYlwm8wFCb5HlULfSRTMNtm7eURhv4jeRCBYI2T1TOYy1opR29g5CxO0hOB6onkOsyVZagNQ0scih5DVSMZD8BUZTrbMHTHodQ41sYhc1eEtX2+GMc2KctHoLqgTIKJHsi8cWyUsoc9PwQ3Za1HU6eAD8axDco6kS6EIBVOU6eAHcPYcyoCkcIjFF4qMiWYxSX3GMZ6qGgeWy6giFWo2IRZenJPFNMsfSqe/6HthaJFoQNz7FblnhdMy1J4S6EQgqJIoeg3bwr4Eca0Tyr2S3lY+quQbVH1ClMcyD0rWUxpHlHRCmSBchmyGlVVL0xgqZK8d7gxJUKh6EsDG0cB9Smn2oYJ0hxKps/xm+WLwlbaBzT5rd6MqnjApCngt9Q1ur2EmhQEYn261d9WHcYwb+LxtHlxanR7Cb3wh7LYJm+AdU5kzZkCXl5bjW4vIZTyijVB0se2rJizS8r22jGjdy+hHd0VT7j7XRxQI4r58vcpO2njF/s+R14iGFoluYQeNTI/mCs3Fa9TsdeUadZZS5zs2zeptYm5WqdCakPP3+LYwx5k9yTbB9QpmDAFTEehJ3Giszc+51Ye4hRMWBE6FBxto7OXKiBiQxzqHVDnAvOzTWGlDZ0CNZp7kymOdzLU6ucwL/4vCqdt6LxTwyti85Rt7lEnhHkpUPX4D1rdI2rsilgXFe4qteIDzEmIQj2XgtYBNTIxEeug4vCEwpxXhJsvCl/PeWj81Klxa42K71LYuaXOw5ynoBF8MLqwQtH7ApmdQvKCOvdrc50CJnwdTHzUqbVVCkPmp2rDQ52TOX3Aparpdu9L6rwPJCjqFFprr3FqVJ4xez6O9KSm0YUVer40FFWqUnBVqVHG7Hk4Ero4w9g69UJpHxRfVPXtKCWp4cOs3bQ40r5ew8hbhnptKQDFPUecgFU7LMkbzJiDYy9twwsrXIdLUBQ5UnkD4G7NcUWwcSwfxchKnL+EU2dQJDm2jqHcelwzGDMVu+fYwyS2xt+yUetUbLwLWSBBlWduU8BCGyofp7gjMSiKBmeEwp1av4JZinAi0IYQu+OU8z0IRaMHwI3rk7L/5jUF/GhDkDhtdRTboMZWDCOD7T5JF2bnnBq5KBSWBqedGcbq4iyuXv9pdz5TQL8au0QDu6PYJ2oVb6B143BhVmJPnKj6/0Fm73NaBqPYFnXy0Bu8YUYC1LjPLUHmoYHbcWyVOq016LkwI05qJD82MLRSp4EibBDq1HuB3ukPZqNBje+BC0Dsm0YSsT0oLCRNOdkOqLXpKwDYoKGaNQqFnb85McX/4bPg/6xNrUtXAHi8paGy9wWKU47178rOfOHZj7HYqUM6ufxOvF91ZzsFjGyUABuNhUoXUKwqkbaXnYEVY9ZcYCcVqhUz9cTew+ARMxCkztWrF8E6p9S/Gnf/bYxONY9dKybsA1fK816sULZfdlkxK1HqvJ5YYp8kK7fFw/eDkO3kVUo7umf2mMiyQ8PaTb/ubd5VOdEI/699cwCXI9ui8Arui41h93hio57taOy5tmp2bPsqtnEd2xnGtpPOG9vO99bZ1dVBp5PcT4//hzrnNM46e6+9qzq4RaUvhoeHRyAUkVEkGn5izCw26JFE/8AzLj4+KiERV5MUFZUMP6V+/3jLck82dH/apKSmpqY5ra38L3GLpNv2SwhJvJDOcOjSVUg301Cv7kCNfvJY9wQhPXA1sSI9f9mpVp3SDzz492ueyXuJSG9jgI61ccu8ZNvpCEUfUbpD6SuGfgBK60+Tdo8+UK5lEy2Kx/qLYQCuoHWbagNFBqmVgxksMmQon72exq0zbLhtj0AoRorSB4ZRoowGUK1aq79dda/M6CqZWSLZatEnWrUs9wdjyt4ikmNdnzG9eo1lp7hxTx033mEClIm2bb/I6SQok8crkyOg9BSZIiIZIIlTRZjrzomol5GRMU19kZHRB+5rSbTMdE/dRhRJZuTMnDmT0ZvF4cwrmT3DMszhMOWhjnMzlHnTcF3G237mLwBZ6E7Dc81J8myH/IJCEIor6ixSDNJPZNFikb7AaL876y0RWaqVs0xk+bMrRFIth7Erh4jDKstaLVexZsVavmMdR+vqcAM/sV1wHRbYARYCWG+7bGCsN9oBNo0DNjOzI/l9WwBsXcIrg5cEvCyyBOQVEXn10XYNrNcobYz1OqcpFhnKkctqy3pDrmEl37ONlt2OzRJgKq7DDtveuWvXbtaVPbwQ4/Jte31BwR4T0b3APsZ0167964cbcwAHRGQuK/oggP78vrmcHwK6Md9VH233l8MiR4YacUdFjmkEKZkYrUeOHxu8itfZljVL5OixY8dS6Yljx46voUq+Z6XICd0gq2fPnn1ZiLIVwVBWIP8T1RTGvScdsadsewf8010qsHM9pr4IOM3vizsjMrA7EG8CRihmhUXOUluKk1mu63XVHA6cw+T4z3BOT2Qd4yLPd4Tf6kQAJFukayKCmEwZ4109LxpTnHdnG4Hztn0BBoZ2P8DiSkaRyGLAJ3IR1B1L3SIy0yKM1TZecmiCw7yuFUcO43xujv8wxy0rjaHkNEVE0pzFo06fOKAbRIJwjwQEoYkeB5KrqmmKU+pkXZ7AtZMghbZRvbWraUYHjcJDPHoPFhTn2ML4DlVxGrKhzOiaNwxidGgk/9GuXbunGvAwZzWUR/03gbVOgAdrMmSzbjDAvXkgmN30KAy76NlhmG/b+0De1OW9XIsINDS8JaYRUFtCPYagSLvAKO1nb1tEQ3ZNsXdtcuc7xujuHeXdOqWXqzpL2xgDTM/2YtFpKN/y9/DumVrEQZx3mgDGcbADkzX7ZL7mv4BNwD1SfoRxkryHUTQuBXfejKUUs1X7WfavnTo6yvgekSsZbXyY9ftKL1RubTLQXQv+wB0t73pf25gGOEWLrqdaNQqEeZPTCGKSllWgvlxTTHbyv5NlpYHdoINokXhgnrDBakO9yFsEsDWLYageSOgKRmzwBx/2Jwy/fOT5mK74pM49dSp8KvJZuYc/ovbN0Ix/flfbhxjgc5b1hWgoucGXIAe5A4JhojdM+mrCxN22mpWXHepk9cRXpiV8NenkBfaz8EIkZmppvSeGhO5I7EwvONntG/dqzmxN6GEjsDVQufF9FT/nuL/pwpL81ulp06aKxACR7FGPeTxfa9RR8zMWYdtaZ0wodYMzIH11oyD2X9H1hwHh/urfrfkfYQfIozkyRG8BiV2FHHDmAzRGLmtSjAliEdaxxt0tHAsm4z1KcCkOFHyMyDce773mw9+WQjcN5SH3TsgovIxgdgbuVwURNIVb/eGa9vTLBzG9N0nYWnmlByhIkyXv6b4u50yhdH3F630abkUtAQ4E1GZN06ONhGa8L0rhLcedUfqkmaRvhxbuPARhEr3+zTdP7d83AWT8m2/uoWYMe/PNN0/q0+JOjgoucEyW+ny+rbz253WeEe/z9YQhLqYblyjp9de+81383tscDvUWO594b+mXPoUh7cKLKXiuMCso9vm+DPtp2e++++6jDs25wUGQt3y+bokI4kWK/QohGMayysWt0oN19kN93HH78ygRLSp6fw9D65v9ONzF2CEE2lwn4Wa8N0rpx0xOrQc8/0uQX5YCqd2mWcvqLXAjfveL+tR4a2yy7QKEgt0sHDclW1wyXZ81b1y2PXCHp9xvX3i6VQUvQhLW4eH2JfpZsBeh4NPibtyUaPHz9o/6b6Nr/tZTmgqeuKvOvaHjGRZWpnL1xvf9/JalksLc3NyvEIoXc3Mn46Zc+ujbAaS4DzW09JTzNG5DI3R6uEIphKZjh5/Xr/Pv8X9DSz3u+UUY/t15upy3g7fcwxWr34v/BKqE3Yv/809pgiRCTfvz/QAAAABJRU5ErkJggg==" id=imLogo name=imLogo alt=phpMyAdmin border=0>
+</a>
+<h1>欢迎使用 <bdo dir=ltr lang=en>phpMyAdmin</bdo></h1>
+<noscript>
+<div class="alert alert-danger" role="alert">
+  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> 该处必须启用 Javascript！
+</div>
+
+</noscript>
+<div class="hide sf-hidden" id=js-https-mismatch>
+</div>
+<div class="alert alert-danger" role=alert>
+ <img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" title alt class="icon ic_s_error"> 无法登录 MySQL 服务器
+</div>
+ <div class="hide js-show" style=display:block>
+ <form action="index.php?route=/" class=disableAjax>
+ 
+ <fieldset>
+ <legend class=col-form-label lang=en dir=ltr>语言 - <em>Language</em></legend>
+ 
+ <select name=lang class=autosubmit lang=en dir=ltr id=sel-lang>
+
+                    <option value=sq>
+ Shqip - Albanian
+ </option>
+                    <option value=ar>
+ العربية - Arabic
+ </option>
+                    <option value=hy>
+ Հայերէն - Armenian
+ </option>
+                    <option value=az>
+ Azərbaycanca - Azerbaijani
+ </option>
+                    <option value=bn>
+ বাংলা - Bangla
+ </option>
+                    <option value=be>
+ Беларуская - Belarusian
+ </option>
+                    <option value=bg>
+ Български - Bulgarian
+ </option>
+                    <option value=ca>
+ Català - Catalan
+ </option>
+                    <option value=zh_cn selected>
+ 中文 - Chinese simplified
+ </option>
+                    <option value=zh_tw>
+ 中文 - Chinese traditional
+ </option>
+                    <option value=cs>
+ Čeština - Czech
+ </option>
+                    <option value=da>
+ Dansk - Danish
+ </option>
+                    <option value=nl>
+ Nederlands - Dutch
+ </option>
+                    <option value=en>
+ English
+ </option>
+                    <option value=en_gb>
+ English (United Kingdom)
+ </option>
+                    <option value=et>
+ Eesti - Estonian
+ </option>
+                    <option value=fi>
+ Suomi - Finnish
+ </option>
+                    <option value=fr>
+ Français - French
+ </option>
+                    <option value=gl>
+ Galego - Galician
+ </option>
+                    <option value=de>
+ Deutsch - German
+ </option>
+                    <option value=el>
+ Ελληνικά - Greek
+ </option>
+                    <option value=he>
+ עברית - Hebrew
+ </option>
+                    <option value=hu>
+ Magyar - Hungarian
+ </option>
+                    <option value=id>
+ Bahasa Indonesia - Indonesian
+ </option>
+                    <option value=ia>
+ Interlingua
+ </option>
+                    <option value=it>
+ Italiano - Italian
+ </option>
+                    <option value=ja>
+ 日本語 - Japanese
+ </option>
+                    <option value=kk>
+ Қазақ - Kazakh
+ </option>
+                    <option value=ko>
+ 한국어 - Korean
+ </option>
+                    <option value=nb>
+ Norsk - Norwegian
+ </option>
+                    <option value=pl>
+ Polski - Polish
+ </option>
+                    <option value=pt>
+ Português - Portuguese
+ </option>
+                    <option value=pt_br>
+ Português (Brasil) - Portuguese (Brazil)
+ </option>
+                    <option value=ro>
+ Română - Romanian
+ </option>
+                    <option value=ru>
+ Русский - Russian
+ </option>
+                    <option value=sr@latin>
+ Srpski - Serbian (latin)
+ </option>
+                    <option value=si>
+ සිංහල - Sinhala
+ </option>
+                    <option value=sk>
+ Slovenčina - Slovak
+ </option>
+                    <option value=sl>
+ Slovenščina - Slovenian
+ </option>
+                    <option value=es>
+ Español - Spanish
+ </option>
+                    <option value=sv>
+ Svenska - Swedish
+ </option>
+                    <option value=tr>
+ Türkçe - Turkish
+ </option>
+                    <option value=uk>
+ Українська - Ukrainian
+ </option>
+                    <option value=vi>
+ Tiếng Việt - Vietnamese
+ </option>
+    
+    </select>
+ </fieldset>
+ 
+ </form>
+ </div>
+<form method=post id=login_form action="/phpmyadmin/index.php?route=/" name=login_form class="disableAjax hide login js-show form-horizontal" style=display:inline>
+ <fieldset>
+ <legend class=col-form-label>
+ 
+ 登录 <a href=http://localhost/phpmyadmin/doc/html/index.html target=documentation><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" title=文档 alt=文档 class="icon ic_b_help"></a>
+ </legend>
+ 
+ <div class="item form-row">
+ <label for=input_username class="col-4 d-flex align-items-center">
+ 用户名： </label>
+ <div class=col-8>
+ <input type=text name=pma_username id=input_username value=root size=24 class=textfield autocomplete=username>
+ </div>
+ </div>
+ <div class="item form-row">
+ <label for=input_password class="col-4 d-flex align-items-center">
+ 密码： </label>
+ <div class=col-8>
+ <input type=password name=pma_password id=input_password value size=24 class=textfield autocomplete=current-password>
+ </div>
+ </div>
+ 
+ </fieldset>
+ <fieldset class=tblFooters>
+ <input class="btn btn-primary" value=执行 type=submit id=input_go>
+ 
+ </fieldset>
+</form>
+ <div id=pma_errors>
+ <div class="alert alert-danger" role=alert><img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" title alt class="icon ic_s_error"> mysqli::real_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: YES)</div>
+ </div>
+ </div>
+ </div>
+</div>
+ </div>
+ 

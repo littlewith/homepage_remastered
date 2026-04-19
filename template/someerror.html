@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>500 Internal Server Error</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 72px;
+            margin-top: 50px;
+            margin-bottom: 0;
+            color: #ff4b5c;
+        }
+
+        p {
+            font-size: 24px;
+            margin-top: 20px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>500 An Error Occured</h1>
+    <p>那个....啊这....服务器出错了哈！！！</p>
+    <p>报一丝，报一丝！！</p>
+    <p id="sec">6</p>
+</body>
+<script>
+    let timercount = 6;
+    function timmer() {
+        let sec = document.getElementById("sec");
+        sec.innerHTML = timercount;
+        timercount = timercount - 1;
+        if (timercount == -1) {
+            window.location.href = "/";
+        }
+    }
+    retintervel = window.setInterval("timmer()", 1000);
+</script>
+
+</html>
