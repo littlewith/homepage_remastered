@@ -1,0 +1,9 @@
+your-domain.com {
+    reverse_proxy nextjs:3000
+
+    encode gzip
+
+    log {
+        output file /var/log/access.log
+    }
+}
