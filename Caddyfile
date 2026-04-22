@@ -1,9 +1,16 @@
+# 你的域名
 your-domain.com {
-    reverse_proxy nextjs:3000
+    # 反向代理到 Docker 容器
+    reverse_proxy localhost:3000
 
+    # 压缩
     encode gzip
 
-    log {
-        output file /var/log/access.log
-    }
+    # 日志
+    log /var/log/caddy/access.log
+}
+
+# HTTP 自动跳转到 HTTPS
+http:// {
+    redir https://{host}{uri}
 }
