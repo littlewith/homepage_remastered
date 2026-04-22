@@ -2,8 +2,9 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# 设置 npm 镜像
-RUN npm config set registry https://registry.npmmirror.com
+# 复制 npmrc 文件
+COPY .npmrc ./
+RUN npm config set registry https://registry.npmmirror.com || true
 
 COPY package*.json ./
 RUN npm ci
